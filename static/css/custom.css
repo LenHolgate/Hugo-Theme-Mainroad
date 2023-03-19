@@ -1,0 +1,44 @@
+ul#time-archive {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.time_archive-list__item {
+	padding-bottom: 20px;
+	padding-bottom: 1.25rem;
+	margin-bottom: 20px;
+	margin-bottom: 1.25rem;
+	border-bottom: 1px solid #ebebeb;
+}
+
+.time_archive-list__header {
+	margin-bottom: 10px;
+	margin-bottom: .625rem;
+}
+
+.time_archive-list__dt-published {
+	font-size: 20px;
+	font-size: 1.25rem;
+}
+
+.time_archive-list__title {
+	font-size: 20px;
+	font-size: 1.25rem;
+}
+
+.figure__float_right {
+float: right;
+margin: 0.5rem 0.5rem 0.5rem 0.5rem
+
+}
+.Xlogo__link {
+    display: inline-block;
+    width: 100%;
+}
+.Xlogo__item {
+    width: 100%;
+    position: relative;
+	padding: 10px;
+	background: black;
+}
