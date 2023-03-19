@@ -1,0 +1,15 @@
+<div class="widget-recent widget">
+{{- if .Site.Params.widgets.social.text }}
+	<h4 class="widget__title">About this entry</h4>
+{{- else }}
+	<h4 class="widget__title"></h4>
+{{- end }}
+	<div class="widget__content">
+{{- if .Site.Params.widgets.social }}
+{{- with .Site.Params.widgets.about.text }}
+{{ . }}
+{{- end }}
+{{- end }}
+    {{ partial "sidepager.html" . }}
+	</div>
+</div>
