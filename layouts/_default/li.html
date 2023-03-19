@@ -1,0 +1,7 @@
+<li class="time_archive-list__item">
+	<a href="{{ .RelPermalink }}" class="time_archive-list__header">
+		<time datetime="{{ .Date.Format "2006-01-02 15:04:05" }}" class="time_archive-list__dt-published">{{ .Date.Format "2006-01-02" }}</time>: 
+		{{ if .Title }}<span class="time_archive-list__title">{{ .Title }}</span><br/>{{ end }}
+		<span class="time_archive-list__summary">{{ .Summary | truncate 240 }}</span>
+	</a>
+</li>

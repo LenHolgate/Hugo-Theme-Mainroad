@@ -1,0 +1,23 @@
+{{ define "main" }}
+<h1>Archives</h1>
+{{ .Content }}
+
+<h2>By Date</h2>
+<ul class="archives-list">
+	{{ range $name, $taxonomy := .Site.Taxonomies.year }} {{- $cnt := .Count -}}
+	  {{- with $.Site.GetPage (printf "%s" $name) -}}
+          <li><a href="{{ .RelPermalink }}" title="All posts from {{ .Title }}">{{ .Title }}</a> ({{$cnt}})</li>
+	  {{ end }}
+	{{- end -}}
+</ul>
+
+<h2>By Date - month</h2>
+<ul class="archives-list">
+	{{ range $name, $taxonomy := .Site.Taxonomies.month }} {{- $cnt := .Count -}}
+	  {{- with $.Site.GetPage (printf "%s" $name) -}}
+          <li><a href="{{ .RelPermalink }}" title="All posts from {{ .Title }}">{{ .Title }}</a> ({{$cnt}})</li>
+	  {{ end }}
+	{{- end -}}
+</ul>
+
+{{ end }}
