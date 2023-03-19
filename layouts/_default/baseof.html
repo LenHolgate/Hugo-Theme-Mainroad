@@ -66,5 +66,14 @@
 <script src="{{ . | relURL }}"></script>
 {{- end }}
 {{- partial "mathjax.html" . -}}
+<!-- Clicky start -->
+{{- if .Site.Params.clicky }}
+{{ with .Site.Params.clicky }}
+<a title="Privacy-friendly Web Analytics" href="https://clicky.com/{{ . }}"><img alt="Clicky" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
+<script async src="//static.getclicky.com/{{ . }}.js"></script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/{{ . }}ns.gif" /></p></noscript>
+{{ end }}
+{{- end }}
+<!-- Clicky end -->
 </body>
 </html>
