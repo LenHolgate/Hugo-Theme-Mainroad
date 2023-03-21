@@ -1,6 +1,8 @@
 {{- $logoTitle := .Site.Params.logo.title | default .Site.Title -}}
 {{- $logoSubtitle := .Site.Params.logo.subtitle | default .Site.Params.subtitle -}}
 {{- $logoAlt := .Site.Params.logo.alt | default .Site.Params.subtitle -}}
+{{- $logoHeight := .Site.Params.logo.height -}}
+{{- $logoWidth := .Site.Params.logo.width -}}
 {{- $logoImage := .Site.Params.logo.image -}}
 
 {{- if or $logoTitle $logoImage }}
@@ -8,10 +10,10 @@
 	{{- $logoMix := and $logoImage $logoTitle -}}
 
 	<div class="logo{{ with $logoMix }} logo--mixed{{ end }}">
-		<a class="Xlogo__link" href="{{ "" | relLangURL }}"{{ with $logoTitle }} title="{{ . }}"{{ end }} rel="home">
+		<a class="Xlogo__link" href="{{ "" | relLangURL }}"{{ with $logoTitle }} title="{{ . }}"{{ end }}  rel="home">
 			{{ with $logoImage -}}
 				<div class="Xlogo__item">
-					<img class="logo__img" src="{{ . | relURL }}" {{ with $logoAlt }} alt="{{ . }}" {{ end }} >
+					<img class="logo__img" src="{{ . | relURL }}" {{ with $logoAlt }} alt="{{ . }}" {{ end }} {{- if $logoHeight }}{{ with $logoHeight }} height="{{ . }}" {{ end }} {{- end }} {{- if $logoWidth }}{{ with $logoWidth }} width="{{ . }}" {{ end }} {{- end }} >
 				</div>
 					{{ with $logoSubtitle }}<div class="logo__tagline">{{ . }}</div>{{ end }}
 			{{- end -}}
