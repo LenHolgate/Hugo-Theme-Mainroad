@@ -11,7 +11,8 @@
 	</div>
 	{{- end }}
 	<ul id="time-archive">
-	{{- range .Pages.Reverse }}
+  {{ $pages := where .Pages.Reverse "Type" "in" site.Params.mainSections }}
+	{{- range $pages }}
 		{{- .Render "li-time-archive" }}
 	{{- end }}
   </ul>
