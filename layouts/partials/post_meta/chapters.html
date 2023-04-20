@@ -1,0 +1,13 @@
+{{- if .Param "chapters" -}}
+{{- $taxo := .Param "chapters" -}}
+{{- with $taxo -}}
+<div class="meta__item-categories meta__item">
+	{{- partial "svg/category.svg" (dict "class" "meta__icon") -}}
+	<span class="meta__text">
+			{{- with $.Site.GetPage (printf "/chapters/%s" $taxo) }}
+				<a class="meta__link" href="{{ .RelPermalink }}" rel="chapter">{{ .Title }}</a>
+		{{- end }}
+	</span>
+</div>
+{{- end }}
+{{- end }}

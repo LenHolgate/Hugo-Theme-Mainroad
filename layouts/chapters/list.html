@@ -1,0 +1,20 @@
+{{ define "main" }}
+<main class="main list" role="main">
+	{{- with .Title }}
+	<header class="main__header">
+		<h1 class="main__title">{{ . }}</h1>
+	</header>
+	{{- end }}
+	{{- with .Content }}
+	<div class="content main__content clearfix">
+		{{ . }}
+	</div>
+	{{- end }}
+	<ul id="time-archive">
+  {{ $pages := where .Pages.Reverse "Type" "in" site.Params.mainSections }}
+	{{- range $pages }}
+		{{- .Render "li-chapter-archive" }}
+	{{- end }}
+  </ul>
+</main>
+{{ end }}

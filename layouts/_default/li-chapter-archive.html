@@ -1,0 +1,9 @@
+<li class="time_archive-list__item">
+	<a href="{{ .RelPermalink }}" class="time_archive-list__header">
+		{{ if .Param "chapter_details" }}<span class="time_archive-list__title">{{ .Param "chapter_details" }} - {{ .Title }}</span><br/>{{ else }}
+		
+		{{ if .Title }}<span class="time_archive-list__title">{{ .Title }}</span><br/>{{ end }}
+{{ end }}
+		<span class="time_archive-list__summary">{{ .Summary | truncate 240 }}</span>
+	</a>
+</li>
