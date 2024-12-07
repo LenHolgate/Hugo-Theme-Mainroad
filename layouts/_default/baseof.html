@@ -36,13 +36,16 @@
 	{{- with .OutputFormats.Get "rss" }}
 	{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 	{{- end }}
-  {{- partial "favicon.html" . -}}
-	{{- if not .Site.IsServer }}
-		{{- if hasPrefix .Site.GoogleAnalytics "G-" }}
+
+	<link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
+	{{- $server := "" }}
+	{{- if gt (int (index (split hugo.Version ".") 1)) "120" }}
+		{{ $server = hugo.IsServer }}
+	{{- else }}
+		{{ $server = .Site.IsServer }}
+	{{- end -}}
+	{{- if not $server }}
 		{{ template "_internal/google_analytics.html" . }}
-		{{- else }}
-		{{ template "_internal/google_analytics_async.html" . }}
-		{{- end }}
 	{{- end }}
 
 {{- if .Site.Params.cookieconsent }}
